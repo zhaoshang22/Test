@@ -11,7 +11,7 @@ class Index
     }
     public function TestWeChat(){
       //开启session 
-
+      echo "1234444";die;
       $appid = "wx5ab0d0a6996daebf"; //填上appid
       $appsecret = "2d651bfe0b924c3df473ae977463df54"; //填上appsecret
       $weixin= new Class_weixin_adv();
