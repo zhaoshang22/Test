@@ -62,5 +62,5 @@ if (!$payload) {
  * `Host key verification failed.`
  *
  */
-echo shell_exec("cd {$local} && git stash && git pull 2>&1 && chmod -R 777 $local");
+echo shell_exec("cd {$local} && git stash && git pull 2>&1 ");
 die("done " . date('Y-m-d H:i:s', time()));
