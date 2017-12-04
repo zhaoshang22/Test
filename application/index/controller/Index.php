@@ -11,7 +11,6 @@ class Index
     }
     public function TestWeChat(){
       //开启session 
-      echo "hello word 赵尚1243";die;
       $appid = "wx5ab0d0a6996daebf"; //填上appid
       $appsecret = "2d651bfe0b924c3df473ae977463df54"; //填上appsecret
       $weixin= new Class_weixin_adv();
@@ -25,7 +24,7 @@ class Index
 
       $row=$weixin->get_user_info($res['openid']); 
       $openid = $row['openid']; //获取openid
-
+      return view('wechat.html',['info'=>$openid]);
       // $unionid = $row['unionid'];  //获取uniond
       
       print_r($res);
