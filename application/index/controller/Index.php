@@ -33,7 +33,7 @@ class Index
     }
     public function wechat($openid){
 
-      return view('wechat',['info'=>$openid]);
+      return view('wechat',['info'=>$openid]); 
 
     } 
 }
