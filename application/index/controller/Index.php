@@ -24,7 +24,7 @@ class Index
 
       $row=$weixin->get_user_info($res['openid']); 
       $openid = $row['openid']; //获取openid
-      return view('wechat.html',['info'=>$openid]);
+      return view('wechat',['info'=>$openid]);
       // $unionid = $row['unionid'];  //获取uniond
       
       print_r($res);
