@@ -24,10 +24,15 @@ class Index
 
       $row=$weixin->get_user_info($res['openid']); 
       $openid = $row['openid']; //获取openid
-      return view('wechat',['info'=>$openid]);
+      return $this->redirect('Index/wechat', ['openid' => $openid]);
       // $unionid = $row['unionid'];  //获取uniond
       
       print_r($res);
       print_r($row);
     }
+    public function wechat($openid){
+      
+      return view('wechat',['info'=>$openid]);
+
+    } 
 }
