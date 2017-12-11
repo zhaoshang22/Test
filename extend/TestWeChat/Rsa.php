@@ -29,7 +29,7 @@ class Rsa {
         lgtXT+fL20jXq3ZObS8vYyI1M/K0f16Or8rKZCUkrW2bURdk+RzUhvXMi1cR3TGv
         8Ievm1dePNHy4moydgO6odYEk2NgfEiaWyFuEUYO5f8VJ/7SCanAKQ==
         -----END RSA PRIVATE KEY-----';    
-    private static $PUBLIC_KEY = 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDpsBAejhIg3v6v4I+6FaV4D9RGNEEiOwgeXqKCpRqczoGRKyooVkCTU2AJ+tjmVDgSjk2XFbVfI/4qQqyrv9KZtbViuP9OKxvITu69Zw3ggfTzOuGuehjlnCfM1wxKwBxlHZxItEYf+kSmbt2db/+yvaI7RT+rgipX/KvIUu/wcedyen7Y0KI2qlvTC2g20wAKrP8k8BWYbV8qxO0I7F3oAYCDRR+T/z4mpeRKKEaDKDp3h6TODu6JuBMXQetLw500q67YaWmUtt3NwNSiw1YxMsYcsB5khUSSliIRcbJw8oXtmAz9GkGjO3FPFtulZCPVXb63JPkZEzrl3zjwmiOp “2571953385@qq.com”';   
+    private static $PUBLIC_KEY = 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDpsBAejhIg3v6v4I+6FaV4D9RGNEEiOwgeXqKCpRqczoGRKyooVkCTU2AJ+tjmVDgSjk2XFbVfI/4qQqyrv9KZtbViuP9OKxvITu69Zw3ggfTzOuGuehjlnCfM1wxKwBxlHZxItEYf+kSmbt2db/+yvaI7RT+rgipX/KvIUu/wcedyen7Y0KI2qlvTC2g20wAKrP8k8BWYbV8qxO0I7F3oAYCDRR+T/z4mpeRKKEaDKDp3h6TODu6JuBMXQetLw500q67YaWmUtt3NwNSiw1YxMsYcsB5khUSSliIRcbJw8oXtmAz9GkGjO3FPFtulZCPVXb63JPkZEzrl3zjwmiOp';   
  
     /**     
      * 获取私钥     
