@@ -65,8 +65,9 @@ class Index
           $PublicKey=Request::instance()->param('PublicKey');// 公钥
           $Data=Request::instance()->param('Data');// 被加密数据
           $PUBLIC_KEY = Rsa::$PUBLIC_KEY;// 获取定义公钥
+          // var_dump($PublicKey);die;
 
-          if($PublicKey==$PUBLIC_KEY){
+          if(self::trimall($PublicKey)==self::trimall($PUBLIC_KEY)){
               $rsa = new Rsa();
 
               $publicEncrypt = $rsa->publicEncrypt(json_encode($Data));
@@ -79,6 +80,27 @@ class Index
           }
 
     }
+    /**
+     * @Author    赵尚
+     * @DateTime  2017-12-11
+     * @Details   [去掉字符串空格]
+     * @Format    [格式]
+     * @copyright [copyright]
+     * @license   [license]
+     * @version   [version]
+     * @param     [type]      $str [description]
+     * @return    [type]           [description]
+     */
+    public function  trimall($str)//删除空格
 
+      {
+
+          $oldchar=array(" ","\t","\n","\r");
+
+          $newchar=array("","","","","");
+
+          return str_replace($oldchar,$newchar,$str);
+
+      }
 
 }
