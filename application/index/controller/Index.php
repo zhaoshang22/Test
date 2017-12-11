@@ -67,9 +67,9 @@ class Index
           $PublicKey=Request::instance()->param('PublicKey');// 公钥
           $Data=Request::instance()->param('Data');// 被加密数据
           $PUBLIC_KEY = Rsa::$PUBLIC_KEY;// 获取定义公钥
-          // var_dump($PublicKey);die;
-
-          if(($PublicKey)=($PUBLIC_KEY)){
+          // var_dump($PublicKey);
+          // var_dump($PUBLIC_KEY);die;
+          if(self::trimall($PublicKey)==self::trimall($PUBLIC_KEY)){
               $rsa = new Rsa();
               $publicEncrypt = $rsa->publicEncrypt(json_encode($Data));
               return json_encode(['code'=>200,'msg'=>'信息加密成功','data'=>$publicEncrypt]);
