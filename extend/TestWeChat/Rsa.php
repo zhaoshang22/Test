@@ -18,7 +18,7 @@ class Rsa {
         pUcm8yMcRKO3ztmBqLzKn6jWituKOfXMuwEkBJqaz9diIHHIa+xpKJ/wFXDNnWt0
         IEOqB0DB8Az5FQ==
         -----END PRIVATE KEY-----';    
-    private static $PUBLIC_KEY = '-----BEGIN PUBLIC KEY-----
+    public static $PUBLIC_KEY = '-----BEGIN PUBLIC KEY-----
         MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC3v4eAMrhgFyKSrQpDF4D+j/yB
         8damJkSVxPA8rH4+6ERLCgAbi0RagECVop1ltVZRrPekctX7V/ARTGZo+aTHhvlV
         iwYhyE83y1pxw4cvRmF3DQhPVewj1Dpq/jKLMf00v5E4vh66nl22VYth3flS6V98

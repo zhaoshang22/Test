@@ -71,7 +71,6 @@ class Index
 
           if(self::trimall($PublicKey)==self::trimall($PUBLIC_KEY)){
               $rsa = new Rsa();
-
               $publicEncrypt = $rsa->publicEncrypt(json_encode($Data));
               return json_encode(['code'=>200,'msg'=>'信息加密成功','data'=>$publicEncrypt]);
 
