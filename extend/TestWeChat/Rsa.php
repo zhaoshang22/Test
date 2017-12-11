@@ -28,8 +28,7 @@ class Rsa {
         hu9aQQECgYEArEqClT8f6gb/+RAw79reMn8yigsaeRAtwfzC/YBOgefM3+ax9x9x
         5uVUQUcXkf4ddFVjwow+GgukBF6UbbPeqKq6MI89DAUaDIY2k5yT9K+ZSuvkUcKd
         8V32sTiEmnLsxPzrL7yOXEROhR++mGLU84y0VsWFjHYNjlJxo3sbIAw=
-        -----END RSA PRIVATE KEY-----
-        ';    
+        -----END RSA PRIVATE KEY-----';    
     private static $PUBLIC_KEY = 'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCoZZ8iUBprOIc0kGckr5ax6/Fd9IKKMc/XHayKEAvqpS0oz0b1ojEkpkdZBk0OWNhp73YNV+YLKBwwxOwb3u3hl8nBLoG/RilEbBMdCf55cUzNsfn/XF5CiLr/aci/OHuTe6ULvXs280T5M+nUh3iKdiT6z9XrFbH69C+xFoNInwIDAQAB';   
  
     /**     
