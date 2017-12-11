@@ -2,6 +2,7 @@
 namespace app\index\controller;
 use TestWeChat\Class_weixin_adv;
 use TestWeChat\Rsa;
+use think\Request;
 
 use think\Controller\redirect;
 class Index
@@ -37,7 +38,6 @@ class Index
     } 
 
     public function RsaTest(){
-        $rsa = new Rsa();
         $data['name'] = 'Tom';
         $data['age']  = '20';
         $privEncrypt = $rsa->privEncrypt(json_encode($data));
@@ -46,11 +46,39 @@ class Index
         $publicDecrypt = $rsa->publicDecrypt($privEncrypt);
         echo '公钥解密后:'.$publicDecrypt.'<br>';
 
-        $publicEncrypt = $rsa->publicEncrypt(json_encode($data));
         echo '公钥加密后:'.$publicEncrypt.'<br>';
 
         $privDecrypt = $rsa->privDecrypt($publicEncrypt);
         echo '私钥解密后:'.$privDecrypt.'<br>';
 
     }
+    /**
+     * @Author    赵尚
+     * @DateTime  2017-12-11
+     * @Details   [Rsa 加密 公钥加密接口]
+     * @Format    [格式]
+     * @copyright [copyright]
+     * @license   [license]
+     * @version   [version]
+     */
+    public function RsaEncrypt(){
+          $PublicKey=Request::instance()->param('PublicKey');// 公钥
+          $Data=Request::instance()->param('Data');// 被加密数据
+          $PUBLIC_KEY = Rsa::$PUBLIC_KEY;// 获取定义公钥
+
+          if($PublicKey==$PUBLIC_KEY){
+              $rsa = new Rsa();
+
+              $publicEncrypt = $rsa->publicEncrypt(json_encode($Data));
+              return json_encode(['code'=>200,'msg'=>'信息加密成功','data'=>$publicEncrypt]);
+
+          }else{
+
+              return json_encode(['code'=>200,'msg'=>'公钥不正确,请谨慎提交,超过五次您的IP将无法访问']);
+
+          }
+
+    }
+
+
 }
