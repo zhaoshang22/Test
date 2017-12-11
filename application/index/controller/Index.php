@@ -41,7 +41,7 @@ class Index
         $data['name'] = 'Tom';
         $data['age']  = '20';
         $rsa = new Rsa();
-        
+
         $privEncrypt = $rsa->privEncrypt(json_encode($data));
         echo '私钥加密后:'.$privEncrypt.'<br>';
 
@@ -69,7 +69,7 @@ class Index
           $PUBLIC_KEY = Rsa::$PUBLIC_KEY;// 获取定义公钥
           // var_dump($PublicKey);die;
 
-          if(($PublicKey)==($PUBLIC_KEY)){
+          if(($PublicKey)=($PUBLIC_KEY)){
               $rsa = new Rsa();
               $publicEncrypt = $rsa->publicEncrypt(json_encode($Data));
               return json_encode(['code'=>200,'msg'=>'信息加密成功','data'=>$publicEncrypt]);
