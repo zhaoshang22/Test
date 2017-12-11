@@ -40,6 +40,8 @@ class Index
     public function RsaTest(){
         $data['name'] = 'Tom';
         $data['age']  = '20';
+        $rsa = new Rsa();
+        
         $privEncrypt = $rsa->privEncrypt(json_encode($data));
         echo '私钥加密后:'.$privEncrypt.'<br>';
 
