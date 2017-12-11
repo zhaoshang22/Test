@@ -2,7 +2,20 @@
 namespace TestWeChat;
 
 class Rsa {    
-    private static $PRIVATE_KEY = 'MIICXgIBAAKBgQCoZZ8iUBprOIc0kGckr5ax6/Fd9IKKMc/XHayKEAvqpS0oz0b1ojEkpkdZBk0OWNhp73YNV+YLKBwwxOwb3u3hl8nBLoG/RilEbBMdCf55cUzNsfn/XF5CiLr/aci/OHuTe6ULvXs280T5M+nUh3iKdiT6z9XrFbH69C+xFoNInwIDAQABAoGAe+ape7msdo+VC5vkCB4ZprePVC3/jmawIfr3ZG4CFpeJ7qjz8O9xcSHXBS2ZrKC6Otex6Idv/213sHpzrt4L7+rSrgMOauWNjSVjr4T4Z168uvsnNocn+3GWfzbBPQj3PhjE64R/MkWDvuq2UK945WYtqFaC6LT1mJAXhjxqpiECQQDYGWYbCsUgQS0LnDzReyotkb9Eyr5UGlI8Nzn3PvwwkIS3N3yUsm2t3UokOw02DlhkC4f1aT097fM1w0FruSNNAkEAx31taitIGwgJg+yPmvwTs8AENm0wxi/V6loEXPBPxX2R4NjSG+ExYzA7/daDq//McKsX0EcYcsFN0E3HwSANmwJBAJUXGOHpUU1Kiihrd25TWissVdjBRATEUB4pP/2738QlwNqjFnmEjLUaak+KyjeUOBl19ywymkUCyPw7pQQMLDUCQQC84DKSDPyuK0PnFjk5QmXdEHZsmaFOY8gjpKrw286La8KMonz8TJCYGvkR8uKkHQMRwcxANLAfJopoKNxyK8j1AkEAwcY3EHeKe4i3FhCjGSqAGAzFFBS1jzTNZxw/cxMMCbfxFH4WvhowqoC1iAKDyZ7HF7V+RcxcfuhoBJi/3+ImEg==';    
+    private static $PRIVATE_KEY = '-----BEGIN DSA PARAMETERS-----
+                        MIICLQKCAQEAzR5OcCDLUpCneJJs1xacfPY0tCnvjob3HWCcEikix0xHbgYrTMPo
+                        kf4eNFqHTkJ8oiPPynBg5GxqzQarAwe+oxkfNdLOOSy2cMfOTYgNzhoBel5fL++A
+                        0SwOU3vIwmcv/hrEYWxNapHi3ff1cyY9/EG3Wc4mDipHsA+WxDHHctlDgvCsyRI7
+                        medp1PZqzFnKzjtTSaHfX5uVdRpSWAr5o+j8xnDrKM9wrXRj9QlrmR5Mbm7cPC3m
+                        3EapIoQDTOtfHpnuPK8+jhoBxlh40PqEhL4PX7a3W9YhkstaI5B7fEcJofv0p8J2
+                        mcSeFr7sXpgQEfcrkfawoQfB5oH5mxFAwQIhAJ0utS+6i+jA0Xw0mr1iS58vbjPK
+                        7sAHHGlfTE4fZ8o/AoIBAQCMgjyQj1gNPlu6QfcliVNINcozGU7nSesIwrYcR+Ub
+                        1i28MjZXivJ8LN4Oirx3giYBxNFqYwlBw6uwsxrJ0k0BzoJqOffFbf06i9+daoeL
+                        0Vp96Zbc0+QpF6du5ozjgZSFj4D2CQnjDB4cwZ0KZY3EMSQLpxXs1+qJ20QXcCjq
+                        Ilrm9XKxlc7ct45nMno2u61mZ5SmFgWHNTHz32caDn/M55KgwSThrQYV/GrJ3YvT
+                        XEp9XdZsR4xhVe0L4cuL/9Jrb3P6cCyoNxSCjYPvgj/UfD8Zc2lPrCT8VI3Y0Xg4
+                        XIsmFiqwhoZ9m+Relxn43tWBcjKFSTYo/DicGkvW5mGp
+                        -----END DSA PARAMETERS-----';    
     private static $PUBLIC_KEY = 'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCoZZ8iUBprOIc0kGckr5ax6/Fd9IKKMc/XHayKEAvqpS0oz0b1ojEkpkdZBk0OWNhp73YNV+YLKBwwxOwb3u3hl8nBLoG/RilEbBMdCf55cUzNsfn/XF5CiLr/aci/OHuTe6ULvXs280T5M+nUh3iKdiT6z9XrFbH69C+xFoNInwIDAQAB';   
  
     /**     
