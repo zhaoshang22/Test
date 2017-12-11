@@ -3,33 +3,33 @@ namespace TestWeChat;
 
 class Rsa {    
     private static $PRIVATE_KEY = '-----BEGIN RSA PRIVATE KEY-----
-        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
+        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
         -----END RSA PRIVATE KEY-----';    
-    private static $PUBLIC_KEY = 'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCoZZ8iUBprOIc0kGckr5ax6/Fd9IKKMc/XHayKEAvqpS0oz0b1ojEkpkdZBk0OWNhp73YNV+YLKBwwxOwb3u3hl8nBLoG/RilEbBMdCf55cUzNsfn/XF5CiLr/aci/OHuTe6ULvXs280T5M+nUh3iKdiT6z9XrFbH69C+xFoNInwIDAQAB';   
+    private static $PUBLIC_KEY = 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDpsBAejhIg3v6v4I+6FaV4D9RGNEEiOwgeXqKCpRqczoGRKyooVkCTU2AJ+tjmVDgSjk2XFbVfI/4qQqyrv9KZtbViuP9OKxvITu69Zw3ggfTzOuGuehjlnCfM1wxKwBxlHZxItEYf+kSmbt2db/+yvaI7RT+rgipX/KvIUu/wcedyen7Y0KI2qlvTC2g20wAKrP8k8BWYbV8qxO0I7F3oAYCDRR+T/z4mpeRKKEaDKDp3h6TODu6JuBMXQetLw500q67YaWmUtt3NwNSiw1YxMsYcsB5khUSSliIRcbJw8oXtmAz9GkGjO3FPFtulZCPVXb63JPkZEzrl3zjwmiOp “2571953385@qq.com”';   
  
     /**     
      * 获取私钥     
