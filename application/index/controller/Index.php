@@ -70,7 +70,7 @@ class Index
           $privDecrypt = $rsa->privDecrypt($PublicKeyDate);
           if($privDecrypt){
 
-              return json_encode(['code'=>200,'msg'=>'信息解密成功','data'=>base64_decode($privDecrypt)]);
+              return json_encode(['code'=>200,'msg'=>'信息解密成功','data'=>json_decode($privDecrypt)]);
           }else{
 
               return json_encode(['code'=>201,'msg'=>'信息解密失败']);
