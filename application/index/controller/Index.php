@@ -57,13 +57,37 @@ class Index
     /**
      * @Author    赵尚
      * @DateTime  2017-12-11
+     * @Details   [公钥加密后  私钥解密]
+     * @Format    [格式]
+     * @copyright [copyright]
+     * @license   [license]
+     * @version   [version]
+     */
+    public function RsaDecodePrivate(){
+
+          $PublicKeyDate=Request::instance()->param('PublicKeyDate');// 公钥
+          $rsa = new Rsa();
+          $privDecrypt = $rsa->privDecrypt($PublicKeyDate);
+          if($privDecrypt){
+
+              return json_encode(['code'=>200,'msg'=>'信息解密成功','data'=>$privDecrypt]);
+          }else{
+
+              return json_encode(['code'=>201,'msg'=>'信息解密失败']);
+
+          }
+
+    }
+    /**
+     * @Author    赵尚
+     * @DateTime  2017-12-11
      * @Details   [Rsa 加密 公钥加密接口]
      * @Format    [格式]
      * @copyright [copyright]
      * @license   [license]
      * @version   [version]
      */
-    public function RsaEncrypt(){
+    public function RsaEncryptPublic(){
           $PublicKey=Request::instance()->param('PublicKey');// 公钥
           $Data=Request::instance()->param('Data');// 被加密数据
           $PUBLIC_KEY = Rsa::$PUBLIC_KEY;// 获取定义公钥

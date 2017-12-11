@@ -2,7 +2,7 @@
 namespace TestWeChat;
 
 class Rsa {    
-    private static $PRIVATE_KEY = '-----BEGIN PRIVATE KEY-----
+    public static $PRIVATE_KEY = '-----BEGIN PRIVATE KEY-----
 MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBALe/h4AyuGAXIpKt
 CkMXgP6P/IHx1qYmRJXE8Dysfj7oREsKABuLRFqAQJWinWW1VlGs96Ry1ftX8BFM
 Zmj5pMeG+VWLBiHITzfLWnHDhy9GYXcNCE9V7CPUOmr+Mosx/TS/kTi+HrqeXbZV
