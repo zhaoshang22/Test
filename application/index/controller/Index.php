@@ -3,6 +3,7 @@ namespace app\index\controller;
 use TestWeChat\Class_weixin_adv;
 use TestWeChat\Rsa;
 use think\Request;
+use think\Cache;
 
 use think\Controller\redirect;
 class Index
@@ -56,6 +57,88 @@ class Index
     }
     /**
      * @Author    赵尚
+     * @DateTime  2017-12-12
+     * @Details   [公钥解密接口]
+     * @Format    [格式]
+     * @copyright [copyright]
+     * @license   [license]
+     * @version   [version]
+     */
+    public function PublicKeyDecode(){
+
+          $Data=(Request::instance()->param(true));// 被加密数据
+          $PUBLIC_KEY = Rsa::$PUBLIC_KEY;// 获取定义公钥
+
+          if(empty($Data)){
+              
+              return json_encode(['code'=>201,'msg'=>'数据为空']);
+
+          }
+
+          if(self::trimall('-----BEGIN PUBLIC KEY-----'.$Data['PublicKey'].'-----END PUBLIC KEY-----')==self::trimall($PUBLIC_KEY)){
+              if($sha1=Cache::get(sha1($Data['PrivDecryptData']))){
+
+                if($sha1==$Data['PrivDecryptData']){
+                  $rsa = new Rsa();
+                  $privDecrypt = $rsa->publicDecrypt($sha1);
+                    if($privDecrypt){
+
+                        return json_encode(['code'=>200,'msg'=>'访问数据解密成功','data'=>json_decode($privDecrypt)]);
+                    }else{
+
+                        return json_encode(['code'=>201,'msg'=>'访问数据解密失败']);
+
+                    }
+                }else{
+                        return json_encode(['code'=>201,'msg'=>'访问数据解密失败']);
+
+                }
+
+              }else{
+                  return json_encode(['code'=>201,'msg'=>'访问加密数据不存在']);
+
+              }
+              
+          }else{
+              return json_encode(['code'=>200,'msg'=>'公钥不正确,请谨慎提交,超过五次您的IP将无法访问']);
+
+          }
+
+    }
+
+    /**
+     * @Author    赵尚
+     * @DateTime  2017-12-12
+     * @Details   [私钥加密后  公钥解密]
+     * @Format    [格式]
+     * @copyright [copyright]
+     * @license   [license]
+     * @version   [version]
+     */
+    public function PrivateKeyEncrypt(){
+
+          $Data=(Request::instance()->param(true));// 被加密数据
+          if(empty($Data)){
+
+              return json_encode(['code'=>201,'msg'=>'数据为空']);
+
+          }
+          $rsa = new Rsa();
+          $privEncrypt = $rsa->privEncrypt(json_encode($Data));
+          if($privEncrypt){
+              Cache::set(''.sha1($privEncrypt).'',$privEncrypt,20);
+              return json_encode(['code'=>200,'msg'=>'请求数据加密成功','data'=>$privEncrypt]);
+          }else{
+
+              return json_encode(['code'=>200,'msg'=>'请求数据加密失败']);
+
+          }
+
+
+    }
+
+    /**
+     * @Author    赵尚
      * @DateTime  2017-12-11
      * @Details   [公钥加密后  私钥解密]
      * @Format    [格式]
@@ -66,16 +149,30 @@ class Index
     public function RsaDecodePrivate(){
 
           $PublicKeyDate=Request::instance()->param('PublicKeyDate');// 公钥
-          $rsa = new Rsa();
-          $privDecrypt = $rsa->privDecrypt($PublicKeyDate);
-          if($privDecrypt){
+          if($sha1=Cache::get(sha1($PublicKeyDate))){
+              if($sha1==$PublicKeyDate){
+                $rsa = new Rsa();
+                $privDecrypt = $rsa->privDecrypt($sha1);
+                if($privDecrypt){
 
-              return json_encode(['code'=>200,'msg'=>'信息解密成功','data'=>json_decode($privDecrypt)]);
+                    return json_encode(['code'=>200,'msg'=>'请求数据解密成功','data'=>json_decode($privDecrypt)]);
+                }else{
+
+                    return json_encode(['code'=>201,'msg'=>'请求数据解密失败']);
+
+                }
+
+              }else{
+                    return json_encode(['code'=>201,'msg'=>'请求数据解密失败']);
+
+              }
           }else{
+              
+              return json_encode(['code'=>201,'msg'=>'请求加密数据不存在']);
 
-              return json_encode(['code'=>201,'msg'=>'信息解密失败']);
+          } 
+          
 
-          }
 
     }
     /**
@@ -88,18 +185,18 @@ class Index
      * @version   [version]
      */
     public function RsaEncryptPublic(){
-          $PublicKey=Request::instance()->param('PublicKey');// 公钥
-          $Data=Request::instance()->param('Data');// 被加密数据
+
+          $Data=(Request::instance()->param(true));// 被加密数据
           $PUBLIC_KEY = Rsa::$PUBLIC_KEY;// 获取定义公钥
-          // var_dump($PublicKey);
-          // var_dump($PUBLIC_KEY);die;
-          if(self::trimall($PublicKey)==self::trimall($PUBLIC_KEY)){
+
+          if(self::trimall('-----BEGIN PUBLIC KEY-----'.$Data['PublicKey'].'-----END PUBLIC KEY-----')==self::trimall($PUBLIC_KEY)){
               $rsa = new Rsa();
+              unset($Data['PublicKey']);
               $publicEncrypt = $rsa->publicEncrypt(json_encode($Data));
-              return json_encode(['code'=>200,'msg'=>'信息加密成功','data'=>$publicEncrypt]);
+              Cache::set(''.sha1($publicEncrypt).'',$publicEncrypt,20);
+              return json_encode(['code'=>200,'msg'=>'访问数据加密成功','data'=>$publicEncrypt]);
 
           }else{
-
               return json_encode(['code'=>200,'msg'=>'公钥不正确,请谨慎提交,超过五次您的IP将无法访问']);
 
           }
