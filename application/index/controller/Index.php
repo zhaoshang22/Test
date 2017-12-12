@@ -126,7 +126,7 @@ class Index
           $rsa = new Rsa();
           $privEncrypt = $rsa->privEncrypt(json_encode($Data));
           if($privEncrypt){
-              Cache::set(''.sha1($privEncrypt).'',$privEncrypt,20);
+              Cache::set(''.sha1($privEncrypt).'',$privEncrypt,300);
               return json_encode(['code'=>200,'msg'=>'请求数据加密成功','data'=>$privEncrypt]);
           }else{
 
@@ -193,7 +193,7 @@ class Index
               $rsa = new Rsa();
               unset($Data['PublicKey']);
               $publicEncrypt = $rsa->publicEncrypt(json_encode($Data));
-              Cache::set(''.sha1($publicEncrypt).'',$publicEncrypt,20);
+              Cache::set(''.sha1($publicEncrypt).'',$publicEncrypt,300);
               return json_encode(['code'=>200,'msg'=>'访问数据加密成功','data'=>$publicEncrypt]);
 
           }else{
